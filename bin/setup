@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-source "${OPENSHIFT_HOMEDIR}/suffle/usr/src/common.sh"
+export OPENSHIFT_TOR_DIR="${OPENSHIFT_HOMEDIR}/shuffle"
+source "${OPENSHIFT_TOR_DIR}usr/src/common.sh"
 
 set -eu
 
