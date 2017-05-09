@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source "${OPENSHIFT_TOR_DIR}usr/src/common.sh"
+source "${OPENSHIFT_HOMEDIR}/suffle/usr/src/common.sh"
 
 set -eu
 
