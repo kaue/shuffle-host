@@ -5,11 +5,11 @@ Categories:
 - embedded
 - plugin
 Versions:
-- '0.0.1.1'
+- '0.0.1.2'
 Cartridge-Short-Name: SFH
 Display-Name: Shuffle
 Name: shuffle
-Version: '0.0.1.1'
+Version: '0.0.1.2'
 Scaling:
   Min: 1
   Max: -1  
@@ -21,4 +21,4 @@ Group-Overrides:
     - shuffle
     - web_proxy
 License: License
-Cartridge-Version: '0.0.6'
+Cartridge-Version: '0.0.7'
