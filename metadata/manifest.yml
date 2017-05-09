@@ -5,11 +5,11 @@ Categories:
 - embedded
 - plugin
 Versions:
-- '0.0.1.2'
+- '0.0.1.3'
 Cartridge-Short-Name: SFH
 Display-Name: Shuffle
 Name: shuffle
-Version: '0.0.1.2'
+Version: '0.0.1.3'
 Scaling:
   Min: 1
   Max: -1  
