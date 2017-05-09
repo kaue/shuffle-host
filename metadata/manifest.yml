@@ -9,7 +9,7 @@ Versions:
 Cartridge-Short-Name: SFH
 Display-Name: Shuffle
 Name: shuffle
-Version: '0.0.1.4'
+Version: '0.0.1.5'
 Scaling:
   Min: 1
   Max: -1  
