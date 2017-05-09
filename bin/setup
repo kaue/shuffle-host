@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export OPENSHIFT_TOR_DIR="${TMP}/APP/"
+export OPENSHIFT_TOR_DIR="${TMP}APP/"
 source "${OPENSHIFT_TOR_DIR}usr/src/common.sh"
 
 set -eu
