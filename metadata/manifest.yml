@@ -1,0 +1,17 @@
+License-Url: https://gitweb.torproject.org/tor.git/plain/LICENSE
+Source-Url: https://github.com/xkollar/tor-openshift/archive/master.zip
+Categories:
+- embedded
+Versions:
+- '0.0.1.1'
+Cartridge-Short-Name: SFH
+Name: shuffle
+Version: '0.0.1.1'
+Scaling:
+  Max: -1
+  Min: 1
+Cartridge-Vendor: unk
+Provides:
+- shuffle - 0.0.1.1
+License: License
+Cartridge-Version: '0.0.6'

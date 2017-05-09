@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+
+source "${OPENSHIFT_TOR_DIR}usr/src/common.sh"
+
+declare pidfile="${OPENSHIFT_DATA_DIR}tor.pid"
+declare logfile="${OPENSHIFT_LOG_DIR}tor.log"
+declare install_log="${OPENSHIFT_LOG_DIR}tor.install.log"
+
+function usage() {
+    echo "Usage: ${progname} [start|stop|restart|status|*]"
+}
+
+function pid() {
+    local pid=$( cat "${pidfile}" )
+    echo "${pid}"
+    test -n "${pid}" && kill -0 "${pid}" &>/dev/null
+}
+
+function start() {
+    if pid &>/dev/null; then
+        warning "The server is already running."
+    else
+        "${OPENSHIFT_TOR_DIR}bin/build-and-run-tor" \
+        &> "${install_log}" &
+        echo $! &>> "${pidfile}"
+    fi
+}
+
+function stop {
+    local marker="keep_tor_running"
+    if marker_present "${marker}"; then
+        echo "Not stopping Tor as marker '${marker}' is present."
+        return 0
+    else
+        echo "You can prevent Tor from stopping by creating marker '${marker}'."
+    fi
+    if pid=$( pid ); then
+        kill "${pid}"
+        wait_for_stop "${pid}"
+        if pid &>/dev/null; then
+            error "The server did not respond to the stop signal." 1
+        fi
+    else
+        warning "The server is not running, nothing to stop."
+    fi
+}
+
+function status() {
+    pid
+}
+
+function restart() {
+    stop
+    start
+}
+
+function tidy() {
+    client_message "Deleting Tor logs"
+    rm -rf "${logfile}"
+    rm -rf "${install_log}"
+}
+
+function ignore_hook() {
+    echo "Tor: Skipping unused hook ${1}"
+}
+
+if [ $# -ne 1 ]; then
+    usage >&2
+    exit 1
+fi
+
+# Handle commands.
+case "${1}" in
+    start|stop|restart|status|tidy)
+        echo "Tor: running hook ${1}"
+        "${1}";;
+    *) ignore_hook "${1}";;
+esac
