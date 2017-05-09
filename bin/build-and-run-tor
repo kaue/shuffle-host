@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+export OPENSHIFT_TOR_DIR="${OPENSHIFT_HOMEDIR}/shuffle/"
 if ! type -a tor &>/dev/null; then
 
     SRC_URL="https://www.torproject.org/dist/tor-${TOR_VERSION}.tar.gz"
