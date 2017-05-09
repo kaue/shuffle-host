@@ -19,6 +19,6 @@ Provides:
 Group-Overrides:
   - components:
     - shuffle
-    - web_framework
+    - web_proxy
 License: License
 Cartridge-Version: '0.0.6'
