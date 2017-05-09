@@ -3,6 +3,7 @@ Source-Url: https://github.com/kauegimenes/shuffle-host/archive/master.zip
 Categories:
 - service
 - embedded
+- plugin
 Versions:
 - '0.0.1.1'
 Cartridge-Short-Name: SFH
